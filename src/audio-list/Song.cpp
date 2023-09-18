@@ -1,4 +1,4 @@
-#include <iostream>
+#include "Song.h"
 #include <string>
 
 /*
@@ -10,29 +10,14 @@ Implement basic methods for creating and displaying songs.
 //keep member public
 
 */
-
-
-class Song
+Song::Song(std::string title, std::string artist)
 {
-    private: //keep data private(encapsulation)
-    std::string title;
-    std::string artist;
-    double duration;
-    
-    public:
-    void createSong(std::string songTitle, std::string artistName);
-    void displayingSong(std::string songTitle, std::string artistName);
-
-};
-
-
-void Song::createSong(std::string songTitle, std::string artistName){
-
 }
 
-void Song::displayingSong(std::string songTitle, std::string artistName){
-
+void Song::createSong(std::string songTitle, std::string artistName)
+{
 }
 
-
-
+void Song::displayingSong(std::string songTitle, std::string artistName)
+{
+}

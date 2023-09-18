@@ -10,14 +10,14 @@ class Song
 {
 
 public:
-    Song(std::string title, std::string artist);
-    void createSong(std::string songTitle, std::string artistName);
-    void displayingSong(std::string songTitle, std::string artistName);
+    Song( const std::string& title, const std::string& artist);
+    static Song createSong();
+    void display() const;
 
 private: //keep data private(encapsulation)
     std::string title;
     std::string artist;
-    double duration;
+    // double duration;
 };
 
 #endif // SONG_H

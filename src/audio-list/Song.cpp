@@ -1,4 +1,5 @@
 #include "Song.h"
+#include <iostream>
 #include <string>
 
 /*
@@ -16,6 +17,14 @@ Song::Song(std::string title, std::string artist)
 
 void Song::createSong(std::string songTitle, std::string artistName)
 {
+    std::cout << "Enter song title: \n";
+    std::cin >> songTitle;
+    title = songTitle;
+
+    std:: cout << "Enter artist name: \n";
+    std::cin >> artistName;
+    artist = artistName;
+
 }
 
 void Song::displayingSong(std::string songTitle, std::string artistName)

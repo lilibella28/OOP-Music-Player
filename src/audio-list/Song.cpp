@@ -11,7 +11,7 @@ Implement basic methods for creating and displaying songs.
 //keep member public
 
 */
-Song::Song() : title(""), artist(""), duration(0.0)
+Song::Song() : title(""), artist("")
 {
 }
 

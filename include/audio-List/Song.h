@@ -10,7 +10,7 @@ class Song
 {
 
 public:
-    Song( const std::string& title, const std::string& artist);
+    Song();
     static Song createSong();
     void display() const;
 

@@ -11,7 +11,7 @@ Implement basic methods for creating and displaying songs.
 //keep member public
 
 */
-Song::Song(const std::string& title, const std::string& artist): title(title), artist(artist)
+Song::Song() : title(""), artist("")
 {
 }
 
@@ -20,13 +20,23 @@ Song Song::createSong()
 
     std::string songTitle,
     artistName;
-    std::cout << "Enter song title: \n";
-    std::cin >> songTitle;
+    std::cout << "Enter song title: ";
+    std::cin.ignore();
+    std::getline(std::cin, songTitle);
+   
 
     std::cout << "Enter artist name: \n";
-    std::cin >> artistName;
+    std::getline(std::cin, artistName);
 
-    return Song(songTitle, artistName);
+    Song newSong;
+
+    newSong.title = songTitle;
+    newSong.artist = artistName;
+
+    return newSong;
+
+
+    return Song();
 };
 
 void Song::display() const

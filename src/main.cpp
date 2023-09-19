@@ -4,10 +4,7 @@
 
 
 int main(){
-    Song Sza("Weekend", "saturday");
-    Song Adele("Hello", "Adele 25");
-    Adele.display();
-    Sza.display();
-    Adele.createSong();
+    Song mySong = mySong.createSong();
+    mySong.display();
     return 0;
 }

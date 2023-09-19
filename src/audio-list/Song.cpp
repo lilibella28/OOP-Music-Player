@@ -37,8 +37,6 @@ Song Song::createSong()
 
     return newSong;
 
-
-    return Song();
 };
 
 void Song::display() const

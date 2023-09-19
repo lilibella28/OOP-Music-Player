@@ -1,5 +1,5 @@
 #ifndef PLAYLIST_H, NODE_H
-#define PLAYLIST_H, NODE_
+#define PLAYLIST_H, NODE_H
 #include <string>
 
 class Node{
@@ -10,8 +10,8 @@ class Node{
 
     //setter and getters 
 
-    void getData() const;
-    void setData() const;
+    std::string getData() const;
+    std::string setData() const;
     //getData return data
     //setdata data = value;
 

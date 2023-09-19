@@ -1,9 +1,9 @@
-#include "Song.h"
+#include "../include/audio-list/Song.h"
 #include <iostream>
 #include <string>
 
 /*
-
+class Song Implementation
 Create the Song class with attributes like title, artist, duration, and a pointer to the next song.
 Implement basic methods for creating and displaying songs.
 
@@ -31,6 +31,6 @@ Song Song::createSong()
 
 void Song::display() const
 {
-    std::cout << "Title:" << title << std::endl;
+    std::cout << "Title: " << title << std::endl;
     std::cout << "Artist: " << artist << std::endl;
 }

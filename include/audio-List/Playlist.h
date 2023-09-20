@@ -2,6 +2,8 @@
 #define PLAYLIST_H, NODE_H
 #include <string>
 
+
+// Node interface
 class Node{
 
     public:

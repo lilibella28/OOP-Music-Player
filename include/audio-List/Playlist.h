@@ -1,27 +1,27 @@
-#ifndef PLAYLIST_H, NODE_H
-#define PLAYLIST_H, NODE_H
+#ifndef PLAYLIST_H
+#define PLAYLIST_H
 #include <string>
 
 
 // Node interface
-class Node{
+class SongNode{
 
     public:
     // constructor
-    Node(std::string value);
+    SongNode(std::string value);
 
     //setter and getters 
 
-    std::string getData() const;
-    std::string setData() const;
+    const std::string& getData() const;
+    void setData(const std::string& value) ;
     //getData return data
     //setdata data = value;
 
     // getNext return next node
-    Node* getNext() const;
+    SongNode* getNext() const;
 
     //setNode Node* node , next=node
-    void setNode(Node* node) const;
+    void setNode(SongNode* node);
 
     private:
     std::string data;
@@ -35,16 +35,18 @@ class Playlist{
         Playlist();
 
         // ADD, REMOVE, AND DISPLAY Playlist
-        void addSong();
-        void removeSong();
-        void displaySong();
+        void addSong(const std::string& songTitl);
+        void removeSong(const std::string& songTitle);
+        void displayPlaying() const;
 
 
     private:
-        Node* head;
+        SongNode* head;
 
-}
+};
 
+
+#endif // PLAYLIST_H 
 /*
 Create the Playlist class to manage songs using a linked list.
 Implement methods to add songs, remove songs, display the playlist, and navigate through songs.
@@ -63,4 +65,3 @@ Test the Playlist class with a few songs to ensure it works as expected.
 
 
 
-#endif // PLAYLIST_H NODE_H

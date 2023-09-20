@@ -7,7 +7,8 @@
 int main(){
     Song mySong = mySong.createSong();
     PlayList myPlaylist(mySong.getTitle());
-    myPlaylist.displayPlaying();
     mySong.display();
+    myPlaylist.addSong(mySong.getTitle());
+    myPlaylist.displayPlaying();
     return 0;
 }

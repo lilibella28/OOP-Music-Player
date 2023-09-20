@@ -4,9 +4,9 @@
 
 
 // SongNode Implementations
-Node::Node(std::string value) : data(value), next(nullptr){};
+Node::Node(const std::string& value) : data(value), next(nullptr){};
 
-std::string Node::getData() const
+const std::string& Node::getData() const
 {
 
     return data;
@@ -19,13 +19,13 @@ void Node::setData(const std::string& value)
     
 }
 
-Node * ::getNext() const
+Node * Node::getNext()
 {
-    return next;
+    return this-> next;
 }
 
-void Node::setNode(SongNode* node) const
+void Node::setNode(Node* node)
 {
 
-    return this->next = node;
+    this -> next = node;
 }

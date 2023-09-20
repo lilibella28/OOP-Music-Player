@@ -31,11 +31,15 @@ void SongNode::setNode(SongNode* node) const
 }
 
 
-PlayList::PlayList(): head(nullptr){}
+PlayList::PlayList(const std::string& songTitle):title(songTitle) head(nullptr){}
 
 
 void PlayList::addSong(const std::string& songTitle){
 
+    PlayList* newSong = new PlayList(songTitle)
+    newSong -> next = head;
+
+    head = newSong;
 
 }
 

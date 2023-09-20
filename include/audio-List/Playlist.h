@@ -32,7 +32,7 @@ class SongNode{
 class PlayList{
 
     public:
-        PlayList();
+        PlayList(const std::string& songTitle);
 
         // ADD, REMOVE, AND DISPLAY Playlist
         void addSong(const std::string& songTitle);

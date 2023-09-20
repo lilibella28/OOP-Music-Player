@@ -1,32 +1,8 @@
 #ifndef PLAYLIST_H
 #define PLAYLIST_H
 #include <string>
+#include "Node.h"
 
-
-// Node interface
-class SongNode{
-
-    public:
-    // constructor
-    SongNode(std::string value);
-
-    //setter and getters 
-
-    const std::string& getData() const;
-    void setData(const std::string& value) ;
-    //getData return data
-    //setdata data = value;
-
-    // getNext return next node
-    SongNode* getNext() const;
-
-    //setNode Node* node , next=node
-    void setNode(SongNode* node);
-
-    private:
-    std::string data;
-    Node* next;
-};
 
 
 class PlayList{
@@ -41,7 +17,7 @@ class PlayList{
 
 
     private:
-        SongNode* head;
+        Node* head;
 
 };
 

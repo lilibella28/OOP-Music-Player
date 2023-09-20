@@ -13,6 +13,8 @@ public:
     Song();
     static Song createSong();
     void display() const;
+    std::string getTitle();
+    std::string getArtistName();
 
 private: //keep data private(encapsulation)
     std::string title;

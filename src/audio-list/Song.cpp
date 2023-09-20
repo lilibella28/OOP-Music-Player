@@ -44,3 +44,11 @@ void Song::display() const
     std::cout << "Title: " << title << std::endl;
     std::cout << "Artist: " << artist << std::endl;
 }
+
+std::string Song::getTitle(){
+    return title;
+}
+
+std::string Song::getArtistName(){
+    return artist;
+}

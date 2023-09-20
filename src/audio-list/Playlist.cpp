@@ -1,34 +1,8 @@
-#include "../../include/audio-list/PlayList.h"
+#include "../../include/audio-list/Playlist.h"
 #include <iostream>
 #include <string>
 
 
-// SongNode Implementations
-SongNode::SongNode(std::string value) : data(value), next(nullptr){};
-
-std::string SongNode::getData() const
-{
-
-    return data;
-}
-
-void SongNode::setData(const std::string& value)
-{
-
-    data = value;
-    
-}
-
-SongNode * ::getNext() const
-{
-    return next;
-}
-
-void SongNode::setNode(SongNode* node) const
-{
-
-    return this->next = node;
-}
 
 
 PlayList::PlayList(const std::string& songTitle):title(songTitle) head(nullptr){}
@@ -48,6 +22,14 @@ void PlayList::removeSong(const std::string& songTitle){
 }
 
 void PlayList::displayPlaying() const{
+    //initiliaze the node* current = head;
+    PlayList* current = head;
+    //add a while loop to check that while curren is not equal null
+    // print the current data, and set the current data to current -> next
+    while(current != nullptr){
+        std::cout << current ->data << std::endl;
+        current = current -> next;
 
+    }
 
 }

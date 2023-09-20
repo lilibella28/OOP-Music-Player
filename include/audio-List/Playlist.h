@@ -29,13 +29,13 @@ class SongNode{
 };
 
 
-class Playlist{
+class PlayList{
 
     public:
-        Playlist();
+        PlayList();
 
         // ADD, REMOVE, AND DISPLAY Playlist
-        void addSong(const std::string& songTitl);
+        void addSong(const std::string& songTitle);
         void removeSong(const std::string& songTitle);
         void displayPlaying() const;
 

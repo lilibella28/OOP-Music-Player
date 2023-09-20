@@ -8,7 +8,7 @@ class Node{
 
     public:
     // constructor
-    Node(std::string value);
+    Node( const std::string& value);
 
     //setter and getters 
 
@@ -18,10 +18,10 @@ class Node{
     //setdata data = value;
 
     // getNext return next node
-    Node* getNext() const;
+    Node* getNext();
 
     //setNode Node* node , next=node
-    void setNode(SongNode* node);
+    void setNode(Node* node);
 
     private:
     std::string data;

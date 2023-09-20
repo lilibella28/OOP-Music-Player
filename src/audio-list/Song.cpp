@@ -21,7 +21,7 @@ Song Song::createSong()
     std::string songTitle,
     artistName;
     std::cout << "Enter song title: ";
-    std::cin.ignore();
+    // std::cin.ignore();
     std::getline(std::cin, songTitle);
 
 

@@ -3,6 +3,9 @@
 #include "../../include/user-interface/UserInterface.h"
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <random>
+#include <vector>
 
 PlayList::PlayList(const std::string &playlistName) : playlistName(playlistName), head(), next(nullptr) {}
 PlayList::PlayList() : playlistName(""), head(), next(nullptr) {}
@@ -57,9 +60,32 @@ void PlayList::removeSongFromPlaylist()
     delete old;
 }
 }
-void PlayList::shuffle() const {
+void PlayList::shuffle(){
+    if(!head){
+        std::cout << "Playlist is empty. \n";
+        return;
+    }
+        //vector to store songs and shuffled songs
+        std::vector<Song*> shuffledSongs;
+        Song* currentSong = head;
 
-};
+        while(currentSong){
+
+            shuffledSongs.push_back(currentSong);
+            currentSong = currentSong ->getNextSong();
+        }
+        //Random shuffles the song inside the vector 
+        std::random_shuffle(shuffledSongs.begin(), shuffledSongs.end()); 
+
+        removeSongFromPlaylist();
+        for(Song* song: shuffledSongs){
+            addSong(*song);// add song back to the LinkedList
+            
+        }
+        displayPlaying();
+    }
+
+
 void PlayList::repeat() const {
 
 };

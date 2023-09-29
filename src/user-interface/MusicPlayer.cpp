@@ -117,9 +117,11 @@ void MusicPlayer::removeSongFromPlaylist()
  */
 void MusicPlayer::shuffle()
 {
-    std::cout << "---------------------------------------------- \n";
-    std::cout << "  shuffle, Thank you for  Music Player \n";
-    std::cout << "---------------------------------------------- \n";
+    // std::cout << "----------------------------------------------" << std::endl;
+    // std::cout << "  shuffle, Thank you for  Music Player" << std::endl;
+    // std::cout << "----------------------------------------------" << std::endl;
+    playlist.shuffle();
+
 };
 /**
  * @brief repeat playlist song.

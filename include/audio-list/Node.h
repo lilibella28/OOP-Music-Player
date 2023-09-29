@@ -1,5 +1,5 @@
-#ifndef NODE_H_INCLUDE
-#define NODE_H_INCLUDE
+#ifndef NODE_H
+#define NODE_H
 #include <string>
 
 
@@ -27,4 +27,4 @@ class Node{
     std::string data;
     Node* next;
 };
-#endif //NODE_H_INCLUDE
+#endif //NODE_H

@@ -8,7 +8,7 @@ void UserInterface::displayWelcomeMessage()
 {
 
     std::cout << "---------------------------------------------- \n";
-    std::cout << "         Welcome to Music Player \n";
+    std::cout << "   \U0001F3B5      Welcome to Music Player \U0001F3B5   \n";
     std::cout << "---------------------------------------------- \n";
 };
 void UserInterface::displayMenuOptions()

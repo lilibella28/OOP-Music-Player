@@ -51,10 +51,11 @@ void PlayList::addSong(const Song &song)
 }
 
 void PlayList::removeSongFromPlaylist()
-{
+{  if(head){
     Song* old =head;
     head = old ->getNextSong();
     delete old;
+}
 }
 void PlayList::shuffle() const {
 

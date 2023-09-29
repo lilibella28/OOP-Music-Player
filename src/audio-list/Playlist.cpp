@@ -33,8 +33,21 @@ PlayList *PlayList::nextSong()
     return this ->next;
 }
 
-void PlayList::removePlaylist(const PlayList &playlistName){
+void PlayList::removePlaylist(const PlayList &playlistNameToRemove){
+    if(next && next->playlistName == playlistNameToRemove){
+        PlayList* oldPlayList = next;
+        next = next-> next;
+        delete oldPlayList;
+        return;
+    }
 
+    PlayList* currentPlaylist = next;
+    PlayList* previousPlaylist = nullptr;
+
+    while(currentPlaylist && currentPlaylist -> playlistName != playlistNameToRemove){
+        previousPlaylist = currentPlaylist;
+        currentPlaylist = currentPlaylist -> next;
+    }
 };
 
 

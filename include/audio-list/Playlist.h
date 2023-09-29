@@ -13,7 +13,7 @@ class PlayList{
         // ADD, REMOVE, AND DISPLAY Playlist
         void createPlaylist();
         void displayAllPlaylist() const;
-        void removePlaylist(const PlayList &playlistName);
+        void removePlaylist(const PlayList &playlistNameToRemove);
         void addSong(const Song &song);
         void removeSongFromPlaylist();
         void shuffle();

@@ -7,15 +7,25 @@
 #include <random>
 #include <vector>
 
-PlayList::PlayList(const std::string &playlistName) : playlistName(playlistName), head(), next(nullptr) {}
-PlayList::PlayList() : playlistName(""), head(), next(nullptr) {}
-
-PlayList PlayList::createPlaylist()
+PlayList::PlayList(const std::string &playlistName) : playlistName(playlistName), head(nullptr), next(nullptr) {}
+PlayList::PlayList() : playlistName(""), head(nullptr), next(nullptr) {}
+void PlayList::createPlaylist()
 {
 
     UserInterface playlistName;
     std::string name = playlistName.createPlaylistInterface();
-    return PlayList(name);
+    PlayList* newPlaylistName = new PlayList(name);
+    newPlaylistName -> next = this->next;
+    this-> next = newPlaylistName;
+}
+
+void PlayList::displayAllPlaylist() const{
+    std::cout << "Playlist" << std::endl;
+    PlayList* currentPlaylistName = this -> next;
+    while(currentPlaylistName != nullptr){
+        std::cout<< currentPlaylistName ->playlistName << std::endl;
+        currentPlaylistName = currentPlaylistName ->next;
+    }
 }
 
 PlayList *PlayList::nextSong()
@@ -27,11 +37,6 @@ void PlayList::removePlaylist(const PlayList &playlistName){
 
 };
 
-void PlayList::displayPlaylists() const
-{
-
-    std::cout << playlistName << std::endl;
-};
 
 void PlayList::addSong(const Song &song)
 {
@@ -114,10 +119,10 @@ void PlayList::search(std::string song){
 PlayList::~PlayList()
 {
 
-    // while (head)
-    // {
-    //     Song* temp = head;
-    //     head = head->next;
-    //     delete temp;
-    // }
+    while (head)
+    {
+        Song* temp = head;
+        head = head->getNextSong();
+        delete temp;
+    }
 }

@@ -18,24 +18,6 @@ Song::Song(const std::string &title, const std::string &artist, int duration) : 
 
 Song::Song() : next(nullptr) {}
 
-// Song Song::createSong()
-// {
-
-//     std::string songTitle, artistName;
-//     int songDuration;
-//     std::cout << "Enter song title: ";
-//     // std::cin.ignore();
-//     std::cin >> songTitle;
-
-//     std::cout << "Enter artist name: \n";
-//     std::cin >> artistName;
-
-//     std::cout << "Enter song duration: \n";
-//     std::cin >> songDuration;
-//     Song newSong = Song(songTitle, artistName, songDuration);
-//     songs.push_back(newSong);
-//     return newSong;
-// };
 
 Song *Song::getNextSong()
 {

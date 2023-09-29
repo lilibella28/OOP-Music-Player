@@ -1,7 +1,7 @@
 #ifndef PLAYLIST_H_INCLUDE
 #define PLAYLIST_H_INCLUDE
 #include "Song.h"
-#include "Node.h"
+
 
 
 
@@ -11,8 +11,8 @@ class PlayList{
         PlayList(const std::string& playlistName);
         PlayList();
         // ADD, REMOVE, AND DISPLAY Playlist
-        static PlayList createPlaylist();
-        void displayPlaylists() const;
+        void createPlaylist();
+        void displayAllPlaylist() const;
         void removePlaylist(const PlayList &playlistName);
         void addSong(const Song &song);
         void removeSongFromPlaylist();
@@ -31,7 +31,6 @@ class PlayList{
         std::string playlistName;
         Song* head;
         PlayList* next;
-
     
     
 

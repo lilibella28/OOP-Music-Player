@@ -64,6 +64,7 @@ void MusicPlayer::createPlaylist()
 */
 void MusicPlayer::displayPlaylists() const
 {
+    playlist.displayAllPlaylist();
 }
 
 /**

@@ -62,7 +62,7 @@ class MusicPlayer{
     void createPlaylist();
     void displayPlaylists() const;
     void displayAllSong();
-    void removePlaylist(const PlayList& playlist);
+    void removePlaylist( PlayList& playlist);
     void addSong();
     void removeSongFromPlaylist();
 

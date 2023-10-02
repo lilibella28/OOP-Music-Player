@@ -104,9 +104,11 @@ void PlayList::shuffle()
         currentSong = currentSong->getNextSong();
     }
     //Random shuffles the song inside the vector
-    std::random_shuffle(shuffledSongs.begin(), shuffledSongs.end());
-
-    removeSongFromPlaylist();
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(shuffledSongs.begin(), shuffledSongs.end(), g);
+    
+    clearPlaylist();
     for (Song *song : shuffledSongs)
     {
         addSong(*song); // add song back to the LinkedList
@@ -139,13 +141,19 @@ void PlayList::search(std::string song){
 
 };
 
-PlayList::~PlayList()
-{
-
+void PlayList::clearPlaylist(){
+    
     while (head)
     {
         Song *temp = head;
         head = head->getNextSong();
         delete temp;
     }
+
+}
+
+PlayList::~PlayList()
+{
+
+    clearPlaylist();
 }

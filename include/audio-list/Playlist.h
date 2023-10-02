@@ -13,14 +13,16 @@ class PlayList{
         // ADD, REMOVE, AND DISPLAY Playlist
         void createPlaylist();
         void displayAllPlaylist() const;
-        void removePlaylist(const PlayList &playlistNameToRemove);
+        void removePlaylist( PlayList &playlistNameToRemove);
         void addSong(const Song &song);
         void removeSongFromPlaylist();
         void shuffle();
         void repeat() const; 
         void displayPlaying() const;
         void search(std::string song);
-        PlayList* nextSong();
+        void clearPlaylist();
+        std::string getPlaylistName() const;
+
     
 
         // Destructor 

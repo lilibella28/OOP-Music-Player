@@ -70,9 +70,8 @@ void MusicPlayer::displayPlaylists() const
 /**
  * @brief  remove  playlist.
  */
-void MusicPlayer::removePlaylist(const PlayList &playlist){
-    
-    
+void MusicPlayer::removePlaylist(PlayList &playlist){
+
 };
 
 /**
@@ -82,20 +81,29 @@ void MusicPlayer::addSong()
 {
     std::string songTitle, artistName;
     int songDuration;
-    std::cout << "Enter song title: ";
-    // std::cin.ignore();
-    std::cin >> songTitle;
 
-    std::cout << "Enter artist name: \n";
-    std::cin >> artistName;
+    // Prompt the user for song details
+    std::cout << "🎵 Let's add a new song to your library! 🎵\n";
 
-    std::cout << "Enter song duration: \n";
+    // Get the song title
+    std::cout << "Enter the title of the song: ";
+    std::getline(std::cin >> std::ws, songTitle);
+
+    // Get the artist name
+    std::cout << "Enter the name of the artist or band: ";
+    std::getline(std::cin >> std::ws, artistName);
+
+    // Get the song duration
+    std::cout << "Enter the duration of the song (in seconds): ";
     std::cin >> songDuration;
+
+    // Display a friendly message
+    std::cout << "🎉 Song '" << songTitle << "' by " << artistName << " added to your library! 🎉\n";
+
     Song newSong(songTitle, artistName, songDuration);
 
     playlist.addSong(newSong);
     currentSong = newSong;
-    playlist.displayPlaying();
 };
 
 void MusicPlayer::displayAllSong()
@@ -123,7 +131,6 @@ void MusicPlayer::shuffle()
     // std::cout << "  shuffle, Thank you for  Music Player" << std::endl;
     // std::cout << "----------------------------------------------" << std::endl;
     playlist.shuffle();
-
 };
 /**
  * @brief repeat playlist song.
@@ -140,9 +147,10 @@ void MusicPlayer::repeat()
  */
 void MusicPlayer::exit()
 {
-    std::cout << "---------------------------------------------- \n";
-    std::cout << "  Bye, Thank you for  Music Player \n";
-    std::cout << "---------------------------------------------- \n";
+    std::cout << "----------------------------------------------\n";
+    std::cout << "  🎶 Thank you for using PlaylistPro! Have a melodic day! 🎶\n";
+    std::cout << "  We hope to see you back soon. Goodbye! 👋\n";
+    std::cout << "----------------------------------------------\n";
 };
 
 /**

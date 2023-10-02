@@ -9,47 +9,53 @@
 
 PlayList::PlayList(const std::string &playlistName) : playlistName(playlistName), head(nullptr), next(nullptr) {}
 PlayList::PlayList() : playlistName(""), head(nullptr), next(nullptr) {}
+
+std::string PlayList::getPlaylistName() const
+{
+    return playlistName;
+}
 void PlayList::createPlaylist()
 {
 
     UserInterface playlistName;
     std::string name = playlistName.createPlaylistInterface();
-    PlayList* newPlaylistName = new PlayList(name);
-    newPlaylistName -> next = this->next;
-    this-> next = newPlaylistName;
+    PlayList *newPlaylistName = new PlayList(name);
+    newPlaylistName->next = this->next;
+    this->next = newPlaylistName;
 }
 
-void PlayList::displayAllPlaylist() const{
+void PlayList::displayAllPlaylist() const
+{
     std::cout << "Playlist" << std::endl;
-    PlayList* currentPlaylistName = this -> next;
-    while(currentPlaylistName != nullptr){
-        std::cout<< currentPlaylistName ->playlistName << std::endl;
-        currentPlaylistName = currentPlaylistName ->next;
+    PlayList *currentPlaylistName = this->next;
+    while (currentPlaylistName != nullptr)
+    {
+        std::cout << currentPlaylistName->playlistName << std::endl;
+        currentPlaylistName = currentPlaylistName->next;
     }
 }
 
-PlayList *PlayList::nextSong()
-{
-    return this ->next;
-}
 
-void PlayList::removePlaylist(const PlayList &playlistNameToRemove){
-    if(next && next->playlistName == playlistNameToRemove){
-        PlayList* oldPlayList = next;
-        next = next-> next;
+
+void PlayList::removePlaylist(PlayList &playlistNameToRemove) 
+{
+    if (next && next->playlistName == playlistNameToRemove.getPlaylistName())
+    {
+        PlayList *oldPlayList = next;
+        next = next->next;
         delete oldPlayList;
         return;
     }
 
-    PlayList* currentPlaylist = next;
-    PlayList* previousPlaylist = nullptr;
+    PlayList *currentPlaylist = next;
+    PlayList *previousPlaylist = nullptr;
 
-    while(currentPlaylist && currentPlaylist -> playlistName != playlistNameToRemove){
+    while (currentPlaylist && currentPlaylist->playlistName != playlistNameToRemove.getPlaylistName())
+    {
         previousPlaylist = currentPlaylist;
-        currentPlaylist = currentPlaylist -> next;
+        currentPlaylist = currentPlaylist->next;
     }
-};
-
+}
 
 void PlayList::addSong(const Song &song)
 {
@@ -72,37 +78,41 @@ void PlayList::addSong(const Song &song)
 }
 
 void PlayList::removeSongFromPlaylist()
-{  if(head){
-    Song* old =head;
-    head = old ->getNextSong();
-    delete old;
+{
+    if (head)
+    {
+        Song *old = head;
+        head = old->getNextSong();
+        delete old;
+    }
 }
-}
-void PlayList::shuffle(){
-    if(!head){
+void PlayList::shuffle()
+{
+    if (!head)
+    {
         std::cout << "Playlist is empty. \n";
         return;
     }
-        //vector to store songs and shuffled songs
-        std::vector<Song*> shuffledSongs;
-        Song* currentSong = head;
+    //vector to store songs and shuffled songs
+    std::vector<Song *> shuffledSongs;
+    Song *currentSong = head;
 
-        while(currentSong){
+    while (currentSong)
+    {
 
-            shuffledSongs.push_back(currentSong);
-            currentSong = currentSong ->getNextSong();
-        }
-        //Random shuffles the song inside the vector 
-        std::random_shuffle(shuffledSongs.begin(), shuffledSongs.end()); 
-
-        removeSongFromPlaylist();
-        for(Song* song: shuffledSongs){
-            addSong(*song);// add song back to the LinkedList
-            
-        }
-        displayPlaying();
+        shuffledSongs.push_back(currentSong);
+        currentSong = currentSong->getNextSong();
     }
+    //Random shuffles the song inside the vector
+    std::random_shuffle(shuffledSongs.begin(), shuffledSongs.end());
 
+    removeSongFromPlaylist();
+    for (Song *song : shuffledSongs)
+    {
+        addSong(*song); // add song back to the LinkedList
+    }
+    displayPlaying();
+}
 
 void PlayList::repeat() const {
 
@@ -134,7 +144,7 @@ PlayList::~PlayList()
 
     while (head)
     {
-        Song* temp = head;
+        Song *temp = head;
         head = head->getNextSong();
         delete temp;
     }

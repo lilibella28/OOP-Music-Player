@@ -10,20 +10,29 @@
 PlayList::PlayList(const std::string &playlistName) : playlistName(playlistName), head(nullptr), next(nullptr) {}
 PlayList::PlayList() : playlistName(""), head(nullptr), next(nullptr) {}
 
+/**
+ * @brief return playlist name .
+ * **/
 std::string PlayList::getPlaylistName() const
 {
     return playlistName;
 }
+/**
+ * @brief  create a playlist name
+ * **/
 void PlayList::createPlaylist()
 {
 
-    UserInterface playlistName;
+    UserInterface playlistName;//taking the iinterface to prompt user
     std::string name = playlistName.createPlaylistInterface();
     PlayList *newPlaylistName = new PlayList(name);
     newPlaylistName->next = this->next;
     this->next = newPlaylistName;
 }
 
+/**
+ * @brief Display all the playlist users has created
+ * **/
 void PlayList::displayAllPlaylist() const
 {
     std::cout << "Playlist" << std::endl;
@@ -35,8 +44,9 @@ void PlayList::displayAllPlaylist() const
     }
 }
 
-
-
+/**
+ * @brief remove playlist
+ * **/
 void PlayList::removePlaylist(PlayList &playlistNameToRemove) 
 {
     if (next && next->playlistName == playlistNameToRemove.getPlaylistName())
@@ -57,9 +67,12 @@ void PlayList::removePlaylist(PlayList &playlistNameToRemove)
     }
 }
 
+/**
+ * @brief add song to main Playlist
+ * **/
 void PlayList::addSong(const Song &song)
 {
-    Song *newSong = new Song(song);
+    Song *newSong = new Song(song); // dynamic memory allocation, and create an objects with it
     if (!head)
     {
         head = newSong;
@@ -77,15 +90,22 @@ void PlayList::addSong(const Song &song)
     }
 }
 
+/**
+ * @brief remove song to main Playlist
+ * **/
 void PlayList::removeSongFromPlaylist()
 {
-    if (head)
+    if (head) //check is there a head, and if true remove it
     {
         Song *old = head;
         head = old->getNextSong();
         delete old;
     }
 }
+
+/**
+ * @brief shuffle song to main Playlist
+ * **/
 void PlayList::shuffle()
 {
     if (!head)
@@ -116,19 +136,22 @@ void PlayList::shuffle()
     displayPlaying();
 }
 
+/**
+ * @brief repeat song 
+ * **/
 void PlayList::repeat() const {
 
 };
 void PlayList::displayPlaying() const
 {
-    if (!head)
+    if (!head) //check it there is an element in the playlist
     {
         std::cout << "There is not song" << std::endl;
     }
     else
     {
 
-        Song *currentSong = head;
+        Song *currentSong = head; //initiate an objects of the song
         while (currentSong)
         {
             currentSong->displaySongInfo(*currentSong);
@@ -137,10 +160,25 @@ void PlayList::displayPlaying() const
     }
 }
 
+void PlayList::play() const {
+    if(!head){
+        std::cout << "Playlist is empty. Cannot play any song.\n";
+        return;
+    }
+    std::cout << "Now Playing: " << head ->getTitle() << " By " << head ->getArtistName() << std::endl;
+    }
+
+/**
+ * @brief search song by name
+ * **/
 void PlayList::search(std::string song){
 
 };
 
+
+/**
+ * @brief clear PlayList
+ * **/
 void PlayList::clearPlaylist(){
     
     while (head)
@@ -152,6 +190,9 @@ void PlayList::clearPlaylist(){
 
 }
 
+/**
+ * @brief PlayList desctructor 
+ **/
 PlayList::~PlayList()
 {
 

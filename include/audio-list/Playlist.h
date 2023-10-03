@@ -17,7 +17,8 @@ class PlayList{
         void addSong(const Song &song);
         void removeSongFromPlaylist();
         void shuffle();
-        void repeat() const; 
+        void repeat() const;
+        void play() const; 
         void displayPlaying() const;
         void search(std::string song);
         void clearPlaylist();

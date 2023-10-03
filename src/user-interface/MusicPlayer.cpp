@@ -10,9 +10,7 @@ MusicPlayer::MusicPlayer() : currentSong("Hello", "Adele", 180), playlist() {}
  */
 void MusicPlayer::play()
 {
-    std::cout << "I am playing \n";
-    Song mySong;
-    mySong.displaySongInfo(currentSong);
+    playlist.play();
 };
 
 /**
@@ -147,10 +145,8 @@ void MusicPlayer::repeat()
  */
 void MusicPlayer::exit()
 {
-    std::cout << "----------------------------------------------\n";
-    std::cout << "  🎶 Thank you for using PlaylistPro! Have a melodic day! 🎶\n";
-    std::cout << "  We hope to see you back soon. Goodbye! 👋\n";
-    std::cout << "----------------------------------------------\n";
+   UserInterface exitMessage;
+   exitMessage.exit();
 };
 
 /**
@@ -216,18 +212,25 @@ void MusicPlayer::runMusicPlayer()
 {
     int choice;
     bool keepAdding = true;
+    bool displayMenu = true;
     UserInterface menu;
     menu.displayWelcomeMessage();
 
     while (keepAdding)
     {
+        if(displayMenu){
         menu.displayMenuOptions();
+        displayMenu = false;
+        }
         choice = menu.getUserChoice();
         this->handlerUserChoice(choice);
 
-        if (choice == 14)
-        {
-            break;
+        if(menu.askToShowMenu()){
+            displayMenu = true;
+        }
+        else{
+            keepAdding = false;
+            menu.exit();
         }
     }
 }

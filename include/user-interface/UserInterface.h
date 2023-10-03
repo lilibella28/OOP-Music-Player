@@ -11,6 +11,8 @@ class UserInterface{
     void displayWelcomeMessage();
     void displayMenuOptions();
     int getUserChoice();
+    void exit();
+    bool askToShowMenu();
     static std::string createPlaylistInterface();
 
 };

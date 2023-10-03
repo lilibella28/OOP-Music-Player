@@ -4,6 +4,9 @@
 
 UserInterface::UserInterface() {}
 
+/**
+ * @brief Display a welcoming message for the user.
+ * **/
 void UserInterface::displayWelcomeMessage()
 {
     std::cout << "---------------------------------------------- \n";
@@ -11,6 +14,15 @@ void UserInterface::displayWelcomeMessage()
     std::cout << "---------------------------------------------- \n";
 }
 
+void UserInterface::exit(){
+    std::cout << "----------------------------------------------\n";
+    std::cout << "  🎶 Thank you for using PlaylistPro! Have a melodic day! 🎶\n";
+    std::cout << "  We hope to see you back soon. Goodbye! 👋\n";
+    std::cout << "----------------------------------------------\n";
+}
+/**
+ * @brief functions to display the optios avalaible for the user to choosse
+ * **/
 void UserInterface::displayMenuOptions()
 {
     int userOption;
@@ -34,6 +46,9 @@ void UserInterface::displayMenuOptions()
     std::cout << "----------------------------------------" << std::endl;
 };
 
+/**
+ * @brief Valid user choice.
+ * **/
 int UserInterface::getUserChoice()
 {
     int choice;
@@ -59,6 +74,9 @@ int UserInterface::getUserChoice()
     return choice;
 };
 
+/**
+ * @brief  prompt user to create a playlist
+ * **/
 std::string UserInterface::createPlaylistInterface()
 {
 
@@ -69,3 +87,15 @@ std::string UserInterface::createPlaylistInterface()
 
     return playlistName;
 };
+
+bool UserInterface::askToShowMenu(){
+    char userChoice;
+
+    std::cout << "Do you want to see the menu again? (y/n): " << std::endl;
+    std::cin >> userChoice;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    return (userChoice == 'y' || userChoice == 'Y');
+
+
+}
